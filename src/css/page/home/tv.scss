@@ -1,0 +1,8 @@
+.tv{
+    &__content{
+        @extend .movie__content;
+        &-title{
+            @extend .movie__content-title;
+        }
+    }
+}

@@ -1,0 +1,111 @@
+.header{
+    background-color: rgb(7, 7, 7);
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    position: fixed;
+    &__content{
+        padding: 15px 0px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &-logo{
+            img{
+                width: 224px;
+                margin-left: -5px;
+                @include max-breakpoint(700){
+                    margin-left: -5px;
+                }
+            }
+        }
+        .subMenu{
+            transition: all ease-in-out 0.2s;
+            opacity: 0;
+            visibility: hidden;
+            padding-left: 100px;
+            padding-right: 100px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            width: 100%;
+            position: absolute;
+            background-color: rgba($color:  rgb(7, 7, 7), $alpha: 1.0);
+            margin: auto;
+            top: 100%;
+            left: 0;
+            right: 0;
+            z-index: 3000;
+            @include max-breakpoint(900){
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+        &-sub{
+            font-family: $mont;
+            @include fontStyle(14px,$white,normal);
+            margin: 5px 5px;
+            transition: all ease-in-out 0.2s;
+            &:hover{
+                color: $redHover;
+            }
+            &.add{
+                color: $red;
+            }
+        }
+        &-menu{
+            display: flex;
+        }
+        &-mega{
+            position: relative;
+            font-family: $mont;
+            @include fontStyle(14px,$white,normal);
+            transition: all ease-in-out 0.2s;
+            text-transform: uppercase;
+            &:hover{
+                color: $grey;
+            }
+            &.add{
+                color: $red;
+            }
+        }
+        &-item{
+            cursor: pointer;
+            margin-left: 10px;
+            &:hover .subMenu{
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+        @include max-breakpoint(900){
+            flex-wrap: wrap;
+            padding: 10px 0px;
+        }
+        @include max-breakpoint(700){
+            &-logo{
+                flex-basis: 100%;
+            }
+            &-home{
+                margin-top: 10px;
+            }
+            &-item{
+                margin-top: 10px;
+            }
+            &-sub{
+                font-size: 12px;
+                margin: 5px 5px;
+            }
+        }
+        @include max-breakpoint(500){
+            .subMenu{
+                grid-template-columns: 1fr 1fr;
+            }
+            &-sub{
+                font-size: 12px;
+                margin: 5px 5px;
+            }
+        }
+    }
+}

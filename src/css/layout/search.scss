@@ -1,0 +1,35 @@
+.search{
+    &__content{
+        &-warn{
+            color: rgb(236, 26, 26);
+            text-align: center;
+            font-family: $mont;
+            margin-top: 5px;
+        }
+        form{
+            display: flex;
+            input{
+                outline: none;
+                border: none;
+                padding: 10px 10px;
+                width: 80%;
+                border-radius: 18px;
+                margin-right: 10px;
+            }
+            button{
+                width: 20%;
+                border-radius: 18px;
+                outline: none;
+                border: none;
+                background-color: rgb(230, 38, 38);
+                font-size: 16px;
+                &:hover{
+                    background-color: rgb(202, 23, 23);
+                }
+                @include max-breakpoint(350){
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}

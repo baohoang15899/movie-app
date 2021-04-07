@@ -1,0 +1,64 @@
+.modalTrailer{
+    .modal{
+        background-color: rgba($color: $black, $alpha: 0.7);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1002;
+        opacity: 0;
+        visibility: hidden;
+        transition: all ease-in-out 0.2s;
+        &.add{
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+    .no{
+        font-family: $mont;
+        position: fixed;
+        z-index: 1005;
+        font-weight: bold;
+        @include fontStyle(18px,$red,normal);
+        text-transform: uppercase;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        display: none;
+        animation-name: fade;
+        animation-duration: 0.2s; 
+        &.add{
+        display: block;
+        }
+    }
+    .iframe{
+        display: none;
+        animation-name: fade;
+        animation-duration: 0.2s; 
+        &.add{
+        display: block;
+        }
+        @keyframes fade {
+            from{opacity: 0.3;}
+            to{opacity: 1;}
+        }
+        width: 60vw;
+        height: 70vh;
+        z-index: 1005;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        @include max-breakpoint(715){
+            height: 60vh;
+        }
+        @include max-breakpoint(500){
+            width: 70vw;
+            height: 40vh;
+        }
+        @include max-breakpoint(400){
+            height: 30vh;
+        }
+    }
+}

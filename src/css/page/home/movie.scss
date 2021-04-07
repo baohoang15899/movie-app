@@ -1,0 +1,10 @@
+.movie{
+    &__content{
+        padding: 30px 0px;
+        &-title{
+            font-family: $mont;
+            font-weight: bold;
+            @include fontStyle(18px,$red,normal);
+        }
+    }
+}

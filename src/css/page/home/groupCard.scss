@@ -1,0 +1,60 @@
+.groupCard{
+    margin: 0px -10px;
+    margin-top: 30px;
+    .slick-dots li button:before {
+        color: $red;
+      }
+      .slick-track{ margin-left: 0; }
+    .card{
+        margin: 0px 10px;
+        &__content{
+            min-height: 260px;
+            position: relative;
+            img{
+                border-radius: 18px;
+            }
+            &-loading{
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                display: none;
+                &.add{
+                    display: block;
+                }
+                .animation{
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%,-50%);
+                    .loading{
+                        width: 50px;
+                        height: 50px;
+                        border: 4px solid #d3d3d3;
+                        border-top-color: $red;
+                        border-radius: 50%;
+                        animation: spin 1s linear infinite;
+                      }
+                      @keyframes spin {
+                        to {
+                          transform: rotate(360deg);
+                        }
+                    }
+                }
+            }
+            &-text{
+                font-family: $mont;
+                margin-top: 10px;
+                margin-bottom: 20px;
+                a{
+                    @include fontStyle(12px,$white,normal);
+                    transition: all ease-in-out 0.2s;
+                    &:hover{
+                        color: rgb(238, 58, 88);
+                    }
+                }
+            }
+        }
+    }
+}

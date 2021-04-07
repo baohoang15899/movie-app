@@ -1,0 +1,135 @@
+.genCard{
+    padding-top: 20px;
+    padding-bottom: 40px;
+    h3{
+        margin-bottom: 20px;
+        @include fontStyle(18px,$red,normal);
+        font-family: $mont;
+        @include max-breakpoint(500){
+            flex-basis: 100%;
+        }
+    }
+    .groupGen{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        @include max-breakpoint(500){
+            flex-wrap: wrap;
+        }
+    }
+    &__lb{
+        color: $white;
+        margin-right: 5px;
+        font-family: $mont;
+        @include fontStyle(14px,$white,normal);
+    }
+    &__sl{
+        background-color: $redHover;
+        color: $white;
+        font-family: $mont;
+        padding: 10px 20px;
+        outline: none;  
+        border: none;
+        appearance: none;
+    }
+    .pagination{
+        margin: auto;
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .page-item{
+            margin: 0px 10px;
+            font-family: $mont;
+            font-size: 13px;
+        }
+        .page-link{
+            padding: 5px 8px;
+            background-color: rgb(46, 45, 45);
+            color: $white;
+            &:hover{
+                color: $red;
+            }
+            &.active{
+                color: $red;
+            }
+        }
+        @include max-breakpoint(500){
+            .page-item{
+                font-size: 10px;
+                margin: 0 5px;
+            }
+        }
+    }
+    &__content{
+        min-height: 700px;
+        margin: 0px -10px;
+        display: grid;
+        grid-template-columns: repeat(6,1fr);
+        @include max-breakpoint(1300){
+            grid-template-columns: repeat(5,1fr);
+        }
+        @include max-breakpoint(1150){
+            grid-template-columns: repeat(3,1fr);
+        }
+        @include max-breakpoint(800){
+            grid-template-columns: repeat(2,1fr);
+        }
+        @include max-breakpoint(451){
+            grid-template-columns: 1fr;
+        }
+    }
+    .card{
+        margin: 0px 10px;
+        &__content{
+            min-height: 280px;
+            position: relative;
+            img{
+                border-radius: 18px;
+            }
+            &-loading{
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                display: none;
+                &.add{
+                    display: block;
+                }
+                .animation{
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%,-50%);
+                    .loading{
+                        width: 50px;
+                        height: 50px;
+                        border: 4px solid #d3d3d3;
+                        border-top-color: $red;
+                        border-radius: 50%;
+                        animation: spin 1s linear infinite;
+                      }
+                      @keyframes spin {
+                        to {
+                          transform: rotate(360deg);
+                        }
+                    }
+                }
+            }
+            &-text{
+                font-family: $mont;
+                margin-top: 10px;
+                margin-bottom: 20px;
+                a{
+                    @include fontStyle(12px,$white,normal);
+                    transition: all ease-in-out 0.2s;
+                    &:hover{
+                        color: rgb(238, 58, 88);
+                    }
+                }
+            }
+        }
+    }
+}

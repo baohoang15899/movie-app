@@ -1,0 +1,155 @@
+.banner{
+    padding-top: 80px;
+    padding-bottom: 40px;
+    &__content{
+        position: relative;
+        &-nav{
+            position: absolute;
+            z-index: 101;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+        }
+        &-navBtn{
+            cursor: pointer;
+            margin: 0px 10px;
+            z-index: 105;
+            height: 9px;
+            width: 30px;
+            border: 1px solid $red;
+            transition: all ease-in-out 0.2s;
+            &.add{
+                background-color: $white;
+            }
+        }
+        &-next{
+            position: absolute;
+            top: 50%;
+            z-index: 101;
+            right: 0;
+            transform: translateY(-50%);
+            padding: 10px;
+            background-color: $red;
+            font-size: 25px;
+            border-radius: 14px 0px 0px 14px;
+            cursor: pointer;
+            transition: all ease-in-out 0.2s;
+            &:hover{
+                background-color: rgb(223, 48, 48);
+            }
+        }
+        &-back{
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            z-index: 101;
+            left: 0px;
+            transform: translateY(-50%);
+            background-color: $red;
+            font-size: 25px;
+            padding: 10px;
+            border-radius: 0px 14px 14px 0px;
+            transition: all ease-in-out 0.2s;
+            &:hover{
+                background-color: rgb(223, 48, 48);
+            }
+        }
+        &-slide{
+            display: none;
+            position: relative;
+            animation: fade;
+            animation-duration: 1s;
+            &::after{
+                content: '';
+                position: absolute;
+                width: 100%;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background-color: rgba($color: $black, $alpha: 0.6);
+            }
+            &.add{
+                display: block;
+            }
+            // img{
+            //     max-height: 750px;
+            // }
+            @keyframes fade {
+                from{opacity: 0.3;}
+                to{opacity: 1;}
+            }
+        }
+        &-group{
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 40%;
+            left: 12%;
+            @include fontStyle(28px,$white,normal);
+            font-family: $mont;
+            animation: movee;
+            animation-duration: 1s;
+            @keyframes movee {
+                from{opacity: 0.3;transform: translateX(-50px);}
+                to{opacity: 1; transform: translateX(0px);}
+            }
+        }
+        &-text{
+            font-size: 38px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        @include max-breakpoint(1000){
+            &-text{
+                font-size: 22px;
+            }
+            &-group{
+                font-size: 18px;
+            }
+        }
+        @include max-breakpoint(600){
+            &-group{
+                width: 200px;
+                text-align: center;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                @keyframes movee {
+                    from{opacity: 0.3;}
+                    to{opacity: 1;}
+                }
+            }
+            &-navBtn{
+                margin: 0px 5px;
+                width: 25px;
+            }
+            &-next{
+                font-size: 20px;
+            }
+            &-back{
+                font-size: 20px;
+            }
+        }
+        @include max-breakpoint(400){
+            &-group{
+                font-size: 14px;
+            }
+            &-text{
+                font-size: 16px;
+            }
+            &-navBtn{
+                margin: 0px 5px;
+                width: 15px;
+            }
+            &-next{
+                font-size: 15px;
+            }
+            &-back{
+                font-size: 15px;
+            }
+        }
+    }
+}
