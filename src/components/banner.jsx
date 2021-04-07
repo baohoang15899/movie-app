@@ -4,6 +4,7 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import Loading from './childComponents/Loading'
 import { Link } from 'react-router-dom';
+import Black from '../img/loading.jpg'
 
 export default function Banner(){
     const api = "https://api.themoviedb.org/3/trending/all/week"
@@ -22,6 +23,10 @@ export default function Banner(){
     })
 
     const [status,setStatus] = useState(()=>{
+        return false
+    })
+
+    const [back,setBack] = useState(()=>{
         return false
     })
     
@@ -92,6 +97,12 @@ export default function Banner(){
         setIndex(parseInt(target.id))
     }
 
+    const handleImg = () =>{
+        setBack(true)
+    }
+
+
+
 
     return (
         <div className="banner">
@@ -117,7 +128,7 @@ export default function Banner(){
                     item.original_title ?
                     <Link to={`/detail-movie/${item.id}`} key={item.id}>
                         <div className={`banner__content-slide ${ parseInt(i) === index ? 'add' : ''}`} >
-                        <img src={`${img}${item.backdrop_path}`}  alt=""/>
+                        <img src={` ${back ? img + item.backdrop_path : Black }`} onLoad={handleImg} alt=""/>
                         <div className="banner__content-group">
                             <span className="banner__content-text">
                                 {item.original_title}
@@ -131,7 +142,7 @@ export default function Banner(){
                     :
                     <Link  to={`/detail-tv/${item.id}`} key={item.id}>
                         <div className={`banner__content-slide ${i === index ? 'add' : ''}`} key={item.id}>
-                        <img src={`${img}${item.backdrop_path}`} alt=""/>
+                        <img src={`${back ? img + item.backdrop_path : Black }`} alt=""/>
                         <div className="banner__content-group">
                             <span className="banner__content-text">
                                 {item.original_name}
