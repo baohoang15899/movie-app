@@ -151,7 +151,7 @@ export default function DetailMovie(props){
                                     <ul>
                                         
                                             {genre.map((item,i)=>{
-                                                return <li key={i+'c'} className="detailMovie__content-item"><Link to={`/movie-genres/${item.id}/${item.name}`} className="detailMovie__content-link">{item.name}</Link></li>
+                                                return <li key={i+'c'} className="detailMovie__content-item"><Link to={`/movie-genres/${item.id}/${item.name}/1/popularity.desc`} className="detailMovie__content-link">{item.name}</Link></li>
                                             })}                      
                                         
                                     </ul>
