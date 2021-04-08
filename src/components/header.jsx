@@ -1,7 +1,6 @@
 import React, {  useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { useLocation} from 'react-router-dom'
 import Logo from '../img/logo.png'
 
 
@@ -25,6 +24,9 @@ export default function Header(){
                     const result = data.genres
                     setMvG(result)
                 }
+                else{
+                    console.log("CONNECTION NOT FOUND");
+                }
             } catch (err) {
                 console.log(err);
             }
@@ -41,6 +43,9 @@ export default function Header(){
                     const result = data.genres
                     setMvT(result)
                 }
+                else{
+                    console.log("CONNECTION NOT FOUND");
+                }
             } catch (err) {
                 console.log(err);
             }
@@ -50,9 +55,9 @@ export default function Header(){
 
 
 
-    const location = useLocation()
+    // const location = useLocation()
 
-    // console.log(location.pathname.split("/").slice(0,3).join('/'));
+    // console.log("#" + location.pathname.split("/").slice(0,3).join('/'));
     // console.log(window.location.hash.split("/").slice(0,3).join("/"));
 
     return(
@@ -63,18 +68,18 @@ export default function Header(){
                         <img src={Logo} alt=""/>
                     </Link>
                     <ul className={`header__content-menu `}>
-                        <li className="header__content-home "><NavLink activeClassName={location.pathname === window.location.pathname  ? 'add' : ''} className='header__content-mega' to="/" >Home</NavLink></li>
+                        <li className="header__content-home "><NavLink  className='header__content-mega' to="/" >Home</NavLink></li>
                         <li className="header__content-item"><span className='header__content-mega' >Movies</span>
                         <ul className="subMenu">
                             {mvG.map(item =>{
-                                return <NavLink to={`/movie-genres/${item.id}/${item.name}`} activeClassName={'#'+ location.pathname.split("/").slice(0,3).join('/') === window.location.hash.split("/").slice(0,3).join("/")  ? 'add' : ''} key={item.id} className="header__content-sub">{item.name}</NavLink>
+                                return <NavLink to={`/movie-genres/${item.id}/${item.name}/1/popularity.desc`}  key={item.id} className="header__content-sub">{item.name}</NavLink>
                             })}
                         </ul>
                         </li>
                         <li className="header__content-item"><span className='header__content-mega'  >Tv shows</span>
                         <ul className="subMenu">
                             {mvT.map(item =>{
-                                return <NavLink key={item.id} activeClassName={'#'+ location.pathname.split("/").slice(0,3).join('/') === window.location.hash.split("/").slice(0,3).join("/")  ? 'add' : ''}  to={`/tv-genres/${item.id}/${item.name}`} className="header__content-sub">{item.name}</NavLink>
+                                return <NavLink key={item.id}  to={`/tv-genres/${item.id}/${item.name}/1/popularity.desc`} className="header__content-sub">{item.name}</NavLink>
                             })}
                         </ul>                        
                         </li>

@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Card from './ActorCard'
 import NotFound from '../../img/no-image.png'
 
+
 export default function Actor(props){
     const api = `https://api.themoviedb.org/3/movie/${props.movie.match.params.id}/credits?`
     const key = "api_key=131c3841b70be2908cf7a3fabcaa002e"
@@ -19,17 +20,25 @@ export default function Actor(props){
         return false
     })
 
+    const [connect,setConnect] = useState(()=>{
+        return true
+    })
+
     useEffect(()=>{
         const apiCall = async() =>{
             try {
                 const res = await fetch(api + key)
-                if (res) {
+                if (res.ok) {
                     const data = await res.json()
                     setActor(data.cast)
                     setStatus(true)
                 }
+                else{
+                    setConnect(false)
+                }
             } catch (error) {
                 console.log(error);
+                setConnect(false)
             }
         }
         apiCall()
@@ -79,29 +88,31 @@ export default function Actor(props){
 
     return(
         <div className='actor'>
+            {connect && 
             <div className="container">
-                <div className="actor__content">
-                    <h3>Actor</h3>
-                    {status  && actor.length > 7 ?
-                        <Slider {...settingsSlider}>
-                            {actor.map(person=>{
-                                if (person.profile_path) {
-                                   return (
-                                   <Card key={person.id} card = {{img:img + person.profile_path, name:person.name}}/>
-                                    )
-                                }
-                                else{
-                                    return (
-                                        <Card key={person.id} card = {{img: NotFound, name:person.name}}/>
-                                    )                                    
-                                }
-                            })}
-                        </Slider>
-                        :
-                        <span className='warn'>Actor information not found</span>                    
-                    }
-                </div>
+            <div className="actor__content">
+                <h3>Actor</h3>
+                {status  && actor.length > 7 ?
+                    <Slider {...settingsSlider}>
+                        {actor.map(person=>{
+                            if (person.profile_path) {
+                               return (
+                               <Card key={person.id} card = {{img:img + person.profile_path, name:person.name}}/>
+                                )
+                            }
+                            else{
+                                return (
+                                    <Card key={person.id} card = {{img: NotFound, name:person.name}}/>
+                                )                                    
+                            }
+                        })}
+                    </Slider>
+                    :
+                    <span className='warn'>Actor information not found</span>                    
+                }
             </div>
+        </div>            
+            }
         </div>
     )
 }

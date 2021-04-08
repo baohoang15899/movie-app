@@ -28,6 +28,49 @@
                 img{
                     border-radius: 18px;
                 }
+                &:hover::after{
+                    opacity: 1;
+                    visibility: visible;
+                }
+                &:hover .card__content-btn{
+                    opacity: 1;
+                    visibility: visible;
+                }
+                &::after{
+                    content: '';
+                    opacity: 0;
+                    transition: all ease-in-out 0.2s;
+                    visibility: hidden;
+                    border-radius: 18px;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba($color: black, $alpha: 0.6);
+                    z-index: 50;
+                }
+                &-btn{
+                    opacity: 0;
+                    visibility: hidden;
+                    font-family: $mont;
+                    font-size: 14px;
+                    z-index: 100;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%,-50%);
+                    .cardBtn{
+                        border-radius: 18px;
+                        padding: 5px 15px;
+                        background-color: $redHover;
+                        color: $white;
+                        transition: all ease-in-out 0.2s;
+                        &:hover{
+                            background-color: rgb(206, 34, 34);
+                        }
+                    }
+                }
                 &-loading{
                     position: absolute;
                     top: 0;

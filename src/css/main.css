@@ -179,7 +179,8 @@ button {
     outline: none;
     border: none;
     background-color: #e62626;
-    font-size: 16px; }
+    font-size: 16px;
+    transition: all ease-in-out 0.2s; }
     .search__content form button:hover {
       background-color: #ca1717; }
     @media only screen and (max-width: 350px) {
@@ -348,9 +349,47 @@ button {
     margin: 0px 10px; }
     .groupCard .card__content {
       min-height: 260px;
-      position: relative; }
+      position: relative;
+      cursor: pointer; }
       .groupCard .card__content img {
         border-radius: 18px; }
+      .groupCard .card__content:hover::after {
+        opacity: 1;
+        visibility: visible; }
+      .groupCard .card__content:hover .card__content-btn {
+        opacity: 1;
+        visibility: visible; }
+      .groupCard .card__content::after {
+        content: '';
+        opacity: 0;
+        transition: all ease-in-out 0.2s;
+        visibility: hidden;
+        border-radius: 18px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        z-index: 50; }
+      .groupCard .card__content-btn {
+        opacity: 0;
+        visibility: hidden;
+        font-family: "Montserrat", sans-serif;
+        font-size: 14px;
+        z-index: 100;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); }
+        .groupCard .card__content-btn .cardBtn {
+          border-radius: 18px;
+          padding: 5px 15px;
+          background-color: #ee3a58;
+          color: #ffffff;
+          transition: all ease-in-out 0.2s; }
+          .groupCard .card__content-btn .cardBtn:hover {
+            background-color: #ce2222; }
       .groupCard .card__content-loading {
         position: absolute;
         top: 0;
@@ -624,6 +663,43 @@ button {
     position: relative; }
     .recommend__content .card__content img {
       border-radius: 18px; }
+    .recommend__content .card__content:hover::after {
+      opacity: 1;
+      visibility: visible; }
+    .recommend__content .card__content:hover .card__content-btn {
+      opacity: 1;
+      visibility: visible; }
+    .recommend__content .card__content::after {
+      content: '';
+      opacity: 0;
+      transition: all ease-in-out 0.2s;
+      visibility: hidden;
+      border-radius: 18px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 50; }
+    .recommend__content .card__content-btn {
+      opacity: 0;
+      visibility: hidden;
+      font-family: "Montserrat", sans-serif;
+      font-size: 14px;
+      z-index: 100;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); }
+      .recommend__content .card__content-btn .cardBtn {
+        border-radius: 18px;
+        padding: 5px 15px;
+        background-color: #ee3a58;
+        color: #ffffff;
+        transition: all ease-in-out 0.2s; }
+        .recommend__content .card__content-btn .cardBtn:hover {
+          background-color: #ce2222; }
     .recommend__content .card__content-loading {
       position: absolute;
       top: 0;
@@ -801,6 +877,43 @@ button {
       position: relative; }
       .genCard .card__content img {
         border-radius: 18px; }
+      .genCard .card__content:hover::after {
+        opacity: 1;
+        visibility: visible; }
+      .genCard .card__content:hover .card__content-btn {
+        opacity: 1;
+        visibility: visible; }
+      .genCard .card__content::after {
+        content: '';
+        opacity: 0;
+        transition: all ease-in-out 0.2s;
+        visibility: hidden;
+        border-radius: 18px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        z-index: 50; }
+      .genCard .card__content-btn {
+        opacity: 0;
+        visibility: hidden;
+        font-family: "Montserrat", sans-serif;
+        font-size: 14px;
+        z-index: 100;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); }
+        .genCard .card__content-btn .cardBtn {
+          border-radius: 18px;
+          padding: 5px 15px;
+          background-color: #ee3a58;
+          color: #ffffff;
+          transition: all ease-in-out 0.2s; }
+          .genCard .card__content-btn .cardBtn:hover {
+            background-color: #ce2222; }
       .genCard .card__content-loading {
         position: absolute;
         top: 0;
@@ -866,6 +979,43 @@ button {
         position: relative; }
         .searchPage__content .card__content img {
           border-radius: 18px; }
+        .searchPage__content .card__content:hover::after {
+          opacity: 1;
+          visibility: visible; }
+        .searchPage__content .card__content:hover .card__content-btn {
+          opacity: 1;
+          visibility: visible; }
+        .searchPage__content .card__content::after {
+          content: '';
+          opacity: 0;
+          transition: all ease-in-out 0.2s;
+          visibility: hidden;
+          border-radius: 18px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.6);
+          z-index: 50; }
+        .searchPage__content .card__content-btn {
+          opacity: 0;
+          visibility: hidden;
+          font-family: "Montserrat", sans-serif;
+          font-size: 14px;
+          z-index: 100;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%); }
+          .searchPage__content .card__content-btn .cardBtn {
+            border-radius: 18px;
+            padding: 5px 15px;
+            background-color: #ee3a58;
+            color: #ffffff;
+            transition: all ease-in-out 0.2s; }
+            .searchPage__content .card__content-btn .cardBtn:hover {
+              background-color: #ce2222; }
         .searchPage__content .card__content-loading {
           position: absolute;
           top: 0;
@@ -925,5 +1075,26 @@ button {
       font-size: 18px;
       color: #ee3a58;
       font-style: normal; }
+
+.err {
+  height: 100vh;
+  padding-top: 80px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 800;
+  background-color: #2b2a2a; }
+  .err__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ffffff;
+    font-family: "Montserrat", sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
 
 /*# sourceMappingURL=main.css.map */

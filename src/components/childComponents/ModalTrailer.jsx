@@ -22,6 +22,8 @@ export default function Trailer(props){
                         const data = await res.json()
                         setLink(data.results)
                         setLoad(true)
+                    }else{
+                        console.log("CONNECTION NOT FOUND");
                     }
                 } catch (error) {
                     console.log(error);

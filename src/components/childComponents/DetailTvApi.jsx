@@ -1,7 +1,8 @@
 import React, { useState,useEffect } from 'react';
-import Loading from './Loading'
-import { Link } from 'react-router-dom';
+import Loading from './Loading' 
+import { Link} from 'react-router-dom';
 import Modal from './ModalTrailer'
+import Err from '../Err404'
 
 export default function DetailTv(props){
     const api = `https://api.themoviedb.org/3/tv/${props.info.match.params.id}?`
@@ -73,6 +74,9 @@ export default function DetailTv(props){
         return ''
     })
 
+    const [connect,setConnect] = useState(()=>{
+        return true
+    })
 
 
     useEffect(()=>{
@@ -83,8 +87,11 @@ export default function DetailTv(props){
                     const data = await res.json()
                     setCrew(data.crew)
                 }
+                else{
+                    console.log("CONNECTION NOT FOUND");
+                }
             } catch (error) {
-                
+                console.log(error);
             }
         }
         direct()
@@ -112,7 +119,8 @@ export default function DetailTv(props){
                     setLoading(false)
                 }
                 else{
-                    console.log("CONNECTION NOT FOUND")
+                    console.log("CONNECTION NOT FOUND");
+                    setConnect(false)
                 }
             } catch (error) {
                 console.log(error);
@@ -135,52 +143,58 @@ export default function DetailTv(props){
 
 
     return(
-        <div className='detailMovie' onClick={handleClick} style={{backgroundImage: `${back ? `url("https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${back}")` : 'url()'}`}}>
-            <Loading status={loading}/>  
-            <Modal status= {modal} type ="tv" id={movieId}/>  
-            {status && 
-                <div className="container">
-                <div className="detailMovie__content">
-                    <div className="detailMovie__content-img">
-                        <img loading="lazy" src={path ? img + path : ''} alt=""/>
+        <div>
+            {connect ?
+                <div className='detailMovie' onClick={handleClick} style={{backgroundImage: `${back ? `url("https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${back}")` : 'url()'}`}}>
+                <Loading status={loading}/>  
+                <Modal status= {modal} type ="tv" id={movieId}/>  
+                {status && 
+                    <div className="container">
+                    <div className="detailMovie__content">
+                        <div className="detailMovie__content-img">
+                            <img loading="lazy" src={path ? img + path : ''} alt=""/>
+                        </div>
+                        <div className="detailMovie__content-text">
+                            <h3 className='detailMovie__content-name'>{title}</h3>
+                            <div className='detailMovie__content-group'>
+                                <span className="detailMovie__content-date">{date}</span>
+                                <ul>
+                                    
+                                        {genre.map((item,i)=>{
+                                            return <li key={i + 'b'} className="detailMovie__content-item"><Link to={`/tv-genres/${item.id}/${item.name}`} className="detailMovie__content-link">{item.name}</Link></li>
+                                        })}                      
+                                    
+                                </ul>
+                                <span className='detailMovie__content-time'>{isNaN(time[0]) || time[0] === null  ? '0h'  : parseInt(time[0]/60) + 'h'} { isNaN(time[0]) || time[0] === null  ? '0m' : time[0]%60 + 'm'}/EP</span>
+                            </div>
+                            <div className="detailMovie__content-trailerVote">
+                                <span className="detailMovie__content-vote">{vote}</span>
+                                <span className="detailMovie__content-trailer" onClick={handleModal}>Play Trailer</span>
+                            </div>
+                            <div className="detailMovie__content-season"> <span>Latest season: {season}</span> </div>
+                            <div className="detailMovie__content-ep"><span> {ep} episodes</span> </div>
+                            <span className="detailMovie__content-tag">{tag}</span>
+                            <div className="detailMovie__content-director">
+                                <span>Creator:</span>
+                                {crew.length > 0 ?
+                                    crew
+                                    .filter(person =>  person.known_for_department === 'Writing' )
+                                    .map((item,i) =>{
+                                        return <span key={i+'a'}>{item.name}</span>
+                                    })
+                                    :
+                                    <span>No creator found</span>                            
+                                }                         
+                            </div>
+                            <p className="detailMovie__content-overview"> <span>Overview:</span>  <br/> {overView ? overView : "Not found"}</p>
+                        </div>
                     </div>
-                    <div className="detailMovie__content-text">
-                        <h3 className='detailMovie__content-name'>{title}</h3>
-                        <div className='detailMovie__content-group'>
-                            <span className="detailMovie__content-date">{date}</span>
-                            <ul>
-                                
-                                    {genre.map((item,i)=>{
-                                        return <li key={i + 'b'} className="detailMovie__content-item"><Link to={`/tv-genres/${item.id}/${item.name}`} className="detailMovie__content-link">{item.name}</Link></li>
-                                    })}                      
-                                
-                            </ul>
-                            <span className='detailMovie__content-time'>{isNaN(time[0]) || time[0] === null  ? '0h'  : parseInt(time[0]/60) + 'h'} { isNaN(time[0]) || time[0] === null  ? '0m' : time[0]%60 + 'm'}/EP</span>
-                        </div>
-                        <div className="detailMovie__content-trailerVote">
-                            <span className="detailMovie__content-vote">{vote}</span>
-                            <span className="detailMovie__content-trailer" onClick={handleModal}>Play Trailer</span>
-                        </div>
-                        <div className="detailMovie__content-season"> <span>Latest season: {season}</span> </div>
-                        <div className="detailMovie__content-ep"><span> {ep} episodes</span> </div>
-                        <span className="detailMovie__content-tag">{tag}</span>
-                        <div className="detailMovie__content-director">
-                            <span>Creator:</span>
-                            {crew.length > 0 ?
-                                crew
-                                .filter(person =>  person.known_for_department === 'Writing' )
-                                .map((item,i) =>{
-                                    return <span key={i+'a'}>{item.name}</span>
-                                })
-                                :
-                                <span>No creator found</span>                            
-                            }                         
-                        </div>
-                        <p className="detailMovie__content-overview"> <span>Overview:</span>  <br/> {overView ? overView : "Not found"}</p>
-                    </div>
-                </div>
-            </div>          
+                </div>          
+                }
+                </div>            
+            :
+            <Err/>
             }
-    </div>
+        </div>
     )
 }

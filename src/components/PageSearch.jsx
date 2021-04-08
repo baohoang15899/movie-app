@@ -23,7 +23,7 @@ export default function SearchRes(match){
                 const res = await fetch(`https://api.themoviedb.org/3/search/multi?api_key=131c3841b70be2908cf7a3fabcaa002e&language=en-US&query=${match.match.params.query}&page=1&include_adult=false`)
                 if (res.ok) {
                     const data = await res.json()
-                    setMovie(data.results)
+                    setMovie(data.results.filter(item => item.media_type==='tv' || item.media_type==='movie'))
                     setLoading(false)
                 }
                 else{
@@ -42,7 +42,7 @@ export default function SearchRes(match){
              <Search/>
             <div className="container">
                 <div className="searchPage__content">
-                    <h3>Search results</h3> 
+                    <h3>Search results</h3>
                     { movie.length> 0 ?
                     <div className="searchPage__content-grid">
                         {movie.map(item =>{

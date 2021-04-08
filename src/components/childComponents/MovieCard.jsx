@@ -30,13 +30,21 @@ export default function Card(props){
                 </div>
             </div>
             <img loading="lazy" src={ props.card.img} alt="" onLoad={checkLoading}  />
+            <div className="card__content-btn">
+                {props.card.type === 'movie' && 
+                    <Link className="cardBtn" to={`/detail-movie/${props.card.id}`}>Detail</Link>
+                }
+                {props.card.type === 'tv' &&
+                    <Link className="cardBtn" to={`/detail-tv/${props.card.id}`}>Detail</Link>   
+                }
+            </div>
         </div>
         <div className="card__content-text">
                 {props.card.type === 'movie' && 
-                    <Link target="_blank" to={`/detail-movie/${props.card.id}`}>{props.card.name}</Link>
+                    <Link to={`/detail-movie/${props.card.id}`}>{props.card.name}</Link>
                 }
                 {props.card.type === 'tv' &&
-                    <Link target="_blank" to={`/detail-tv/${props.card.id}`}>{props.card.name}</Link>   
+                    <Link to={`/detail-tv/${props.card.id}`}>{props.card.name}</Link>   
                 }
             </div>
     </div>

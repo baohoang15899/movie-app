@@ -14,18 +14,21 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import Err from './components/Err404';
+
 
 const content = (
   <div className="wrapper">
-    <Router>
+    <Router >
       <Header/>
       <Switch>
           <Route path='/' exact component={Home} />
           <Route  path='/detail-movie/:id' exact component ={(props) => <Detail  key={window.location.hash}  {...props} />} />
           <Route  path='/detail-tv/:id' exact component ={(props) => <DetailTv  key={window.location.hash}  {...props} />} />
-          <Route  path='/movie-genres/:id/:name' exact component ={(props) => <MovieG  key={window.location.hash}  {...props} />} />
-          <Route  path='/tv-genres/:id/:name' exact component ={(props) => <TvG  key={window.location.hash}  {...props} />} />
+          <Route  path='/movie-genres/:id/:name/:page/:sortBy' exact component ={(props) => <MovieG  key={window.location.hash}  {...props} />} />
+          <Route  path='/tv-genres/:id/:name/:page/:sortBy' exact component ={(props) => <TvG  key={window.location.hash}  {...props} />} />
           <Route path='/search/:query' exact component={SearchP} />
+          <Route component={Err} />
       </Switch>
       <Footer/>  
     </Router>

@@ -19,17 +19,25 @@ export default function Actor(props){
         return false
     })
 
+    const [connect,setConnect] = useState(()=>{
+        return true
+    })
+
     useEffect(()=>{
         const apiCall = async() =>{
             try {
                 const res = await fetch(api + key)
-                if (res) {
+                if (res.ok) {
                     const data = await res.json()
                     setActor(data.cast)
                     setStatus(true)
                 }
+                else{
+                    setConnect(false)
+                }
             } catch (error) {
                 console.log(error);
+                setConnect(false)
             }
         }
         apiCall()
@@ -72,29 +80,31 @@ export default function Actor(props){
 
     return(
         <div className='actor'>
+            {connect && 
             <div className="container">
-                <div className="actor__content">
-                    <h3>Actor</h3>
-                    {status  && actor.length > 3 ?
-                        <Slider {...settingsSlider}>
-                            {actor.map(person=>{
-                                if (person.profile_path) {
-                                   return (
-                                   <Card key={person.id} card = {{img:img + person.profile_path, name:person.name}}/>
-                                    )
-                                }
-                                else{
-                                    return (
-                                        <Card key={person.id} card = {{img: NotFound, name:person.name}}/>
-                                    )                                    
-                                }
-                            })}
-                        </Slider>
-                        :
-                        <span className='warn'>Actor information not found</span>                    
-                    }
-                </div>
+            <div className="actor__content">
+                <h3>Actor</h3>
+                {status  && actor.length > 3 ?
+                    <Slider {...settingsSlider}>
+                        {actor.map(person=>{
+                            if (person.profile_path) {
+                               return (
+                               <Card key={person.id} card = {{img:img + person.profile_path, name:person.name}}/>
+                                )
+                            }
+                            else{
+                                return (
+                                    <Card key={person.id} card = {{img: NotFound, name:person.name}}/>
+                                )                                    
+                            }
+                        })}
+                    </Slider>
+                    :
+                    <span className='warn'>Actor information not found</span>                    
+                }
             </div>
+        </div>            
+            }
         </div>
     )
 }
