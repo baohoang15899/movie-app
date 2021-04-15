@@ -9,7 +9,7 @@ import Black from '../img/loading.jpg'
 export default function Banner(){
     const api = "https://api.themoviedb.org/3/trending/all/week"
     const key = "api_key=131c3841b70be2908cf7a3fabcaa002e"
-    const img = "https://image.tmdb.org/t/p/w1920_and_h600_multi_faces"
+    const img = "https://image.tmdb.org/t/p/w1920_and_h800_multi_faces"
     const [movie,setMovie] = useState(()=>{
         return []
     })
@@ -142,7 +142,7 @@ export default function Banner(){
                     :
                     <Link  to={`/detail-tv/${item.id}`} key={item.id}>
                         <div className={`banner__content-slide ${i === index ? 'add' : ''}`} key={item.id}>
-                        <img src={`${back ? img + item.backdrop_path : Black }`} alt=""/>
+                        <img src={`${item.backdrop_path && back ? img + item.backdrop_path : Black }`} alt=""/>
                         <div className="banner__content-group">
                             <span className="banner__content-text">
                                 {item.original_name}
