@@ -99,12 +99,9 @@
             }
         }
         @include max-breakpoint(500){
-            .subMenu{
-                grid-template-columns: 1fr 1fr;
-            }
             &-sub{
-                font-size: 12px;
-                margin: 5px 5px;
+                font-size: 10px;
+                margin: 7px 4px;
             }
         }
     }

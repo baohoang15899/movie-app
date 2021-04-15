@@ -153,11 +153,9 @@ button {
         font-size: 12px;
         margin: 5px 5px; } }
     @media only screen and (max-width: 500px) {
-      .header__content .subMenu {
-        grid-template-columns: 1fr 1fr; }
       .header__content-sub {
-        font-size: 12px;
-        margin: 5px 5px; } }
+        font-size: 10px;
+        margin: 7px 4px; } }
 
 .search__content-warn {
   color: #ec1a1a;
