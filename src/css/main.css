@@ -59,10 +59,10 @@ button {
   max-width: 1920px;
   margin: auto; }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 992px) {
   html, body {
     overflow-x: hidden; } }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 992px) {
   .container {
     padding-left: 20px;
     padding-right: 20px; } }
@@ -72,6 +72,8 @@ button {
   left: 0;
   right: 0;
   z-index: 999;
+  max-width: 1920px;
+  margin: auto;
   position: fixed; }
   .header__content {
     padding: 15px 0px;
@@ -351,6 +353,9 @@ button {
       min-height: 260px;
       position: relative;
       cursor: pointer; }
+      @media only screen and (max-width: 601px) {
+        .groupCard .card__content {
+          min-height: 180px; } }
       .groupCard .card__content img {
         border-radius: 18px; }
       .groupCard .card__content:hover::after {
@@ -661,6 +666,9 @@ button {
   .recommend__content .card__content {
     min-height: 260px;
     position: relative; }
+    @media only screen and (max-width: 600px) {
+      .recommend__content .card__content {
+        min-height: 180px; } }
     .recommend__content .card__content img {
       border-radius: 18px; }
     .recommend__content .card__content:hover::after {
@@ -857,24 +865,27 @@ button {
     min-height: 700px;
     margin: 0px -10px;
     display: grid;
-    grid-template-columns: repeat(6, 1fr); }
-    @media only screen and (max-width: 1300px) {
+    grid-template-columns: repeat(7, 1fr); }
+    @media only screen and (max-width: 1400px) {
       .genCard__content {
         grid-template-columns: repeat(5, 1fr); } }
     @media only screen and (max-width: 1150px) {
       .genCard__content {
-        grid-template-columns: repeat(3, 1fr); } }
+        grid-template-columns: repeat(4, 1fr); } }
     @media only screen and (max-width: 800px) {
       .genCard__content {
-        grid-template-columns: repeat(2, 1fr); } }
+        grid-template-columns: repeat(3, 1fr); } }
     @media only screen and (max-width: 451px) {
       .genCard__content {
-        grid-template-columns: 1fr; } }
+        grid-template-columns: repeat(2, 1fr); } }
   .genCard .card {
     margin: 0px 10px; }
     .genCard .card__content {
       min-height: 280px;
       position: relative; }
+      @media only screen and (max-width: 601px) {
+        .genCard .card__content {
+          min-height: 180px; } }
       .genCard .card__content img {
         border-radius: 18px; }
       .genCard .card__content:hover::after {
@@ -959,24 +970,27 @@ button {
     .searchPage__content-grid {
       margin: 0px -10px;
       display: grid;
-      grid-template-columns: repeat(6, 1fr); }
-      @media only screen and (max-width: 1300px) {
+      grid-template-columns: repeat(7, 1fr); }
+      @media only screen and (max-width: 1400px) {
         .searchPage__content-grid {
           grid-template-columns: repeat(5, 1fr); } }
       @media only screen and (max-width: 1150px) {
         .searchPage__content-grid {
-          grid-template-columns: repeat(3, 1fr); } }
+          grid-template-columns: repeat(4, 1fr); } }
       @media only screen and (max-width: 800px) {
         .searchPage__content-grid {
-          grid-template-columns: repeat(2, 1fr); } }
+          grid-template-columns: repeat(3, 1fr); } }
       @media only screen and (max-width: 451px) {
         .searchPage__content-grid {
-          grid-template-columns: 1fr; } }
+          grid-template-columns: repeat(2, 1fr); } }
     .searchPage__content .card {
       margin: 0px 10px; }
       .searchPage__content .card__content {
         min-height: 280px;
         position: relative; }
+        @media only screen and (max-width: 601px) {
+          .searchPage__content .card__content {
+            min-height: 180px; } }
         .searchPage__content .card__content img {
           border-radius: 18px; }
         .searchPage__content .card__content:hover::after {

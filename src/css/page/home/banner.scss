@@ -60,6 +60,8 @@
             position: relative;
             animation: fade;
             animation-duration: 1s;
+            img{
+            }
             &::after{
                 content: '';
                 position: absolute;

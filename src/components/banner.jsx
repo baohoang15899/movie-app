@@ -9,7 +9,7 @@ import Black from '../img/loading.jpg'
 export default function Banner(){
     const api = "https://api.themoviedb.org/3/trending/all/week"
     const key = "api_key=131c3841b70be2908cf7a3fabcaa002e"
-    const img = "https://image.tmdb.org/t/p/original"
+    const img = "https://image.tmdb.org/t/p/w1920_and_h800_multi_faces"
     const [movie,setMovie] = useState(()=>{
         return []
     })

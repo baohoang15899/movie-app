@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 export default function Genre(props){
     const api = `https://api.themoviedb.org/3/discover/${props.type}?`
     const key = `api_key=131c3841b70be2908cf7a3fabcaa002e&with_genres=${props.genre}`
-    const img = "https://image.tmdb.org/t/p/original"
+    const img = "https://image.tmdb.org/t/p/w220_and_h330_face"
     //anime tv 16
     //action mv 28
     // horror mv 27
@@ -48,29 +48,29 @@ export default function Genre(props){
             {
               breakpoint: 1400,
               settings: {
-                slidesToShow: 4,
-                slidesToScroll: 4,
+                slidesToShow: 5,
+                slidesToScroll: 5,
               }
             },
             {
                 breakpoint: 1100,
                 settings: {
-                  slidesToShow: 3,
-                  slidesToScroll: 3,
+                  slidesToShow: 4,
+                  slidesToScroll: 4,
                 }
               },
             {
               breakpoint: 900,
               settings: {
-                slidesToShow: 2,
-                slidesToScroll: 2,
+                slidesToShow: 3,
+                slidesToScroll: 3,
               }
             },
             {
               breakpoint: 480,
               settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1,
+                slidesToShow: 2,
+                slidesToScroll: 2,
                 dots:false,
               }
             }

@@ -37,7 +37,7 @@ export default function Gen(props){
 
     const api = `https://api.themoviedb.org/3/discover/${props.type}?`
     const key = `api_key=131c3841b70be2908cf7a3fabcaa002e&language=en-US&sort_by=${sort}&include_adult=false&include_video=false&page=${page}&with_genres=${props.id}`
-    const img = "https://image.tmdb.org/t/p/original"
+    const img = "https://image.tmdb.org/t/p/w220_and_h330_face"
 
     useEffect(()=>{
         const apiCall = async () =>{

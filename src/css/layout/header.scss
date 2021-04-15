@@ -4,6 +4,8 @@
     left: 0;
     right: 0;
     z-index: 999;
+    max-width: 1920px;
+    margin: auto;
     position: fixed;
     &__content{
         padding: 15px 0px;

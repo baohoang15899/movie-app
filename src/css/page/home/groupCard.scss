@@ -9,6 +9,9 @@
         margin: 0px 10px;
         &__content{
             min-height: 260px;
+            @include max-breakpoint(601){
+                min-height: 180px;
+            }
             position: relative;
             cursor: pointer;
             img{

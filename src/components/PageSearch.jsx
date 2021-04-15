@@ -6,7 +6,7 @@ import Search from './Search'
 
 export default function SearchRes(match){
 
-       const img = "https://image.tmdb.org/t/p/original"
+       const img = "https://image.tmdb.org/t/p/w220_and_h330_face"
 
        const [movie,setMovie] = useState(()=>{
            return []

@@ -227,6 +227,9 @@
             &__content{
                 min-height: 260px;
                 position: relative;
+                @include max-breakpoint(600){
+                    min-height: 180px;
+                }
                 img{
                     border-radius: 18px;
                 }

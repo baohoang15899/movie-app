@@ -6,18 +6,18 @@
         &-grid{
             margin: 0px -10px;
             display: grid;
-            grid-template-columns: repeat(6,1fr);
-            @include max-breakpoint(1300){
+            grid-template-columns: repeat(7,1fr);
+            @include max-breakpoint(1400){
                 grid-template-columns: repeat(5,1fr);
             }
             @include max-breakpoint(1150){
-                grid-template-columns: repeat(3,1fr);
+                grid-template-columns: repeat(4,1fr);
             }
             @include max-breakpoint(800){
-                grid-template-columns: repeat(2,1fr);
+                grid-template-columns: repeat(3,1fr);
             }
             @include max-breakpoint(451){
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2,1fr);
             }
         }
         .card{
@@ -25,6 +25,9 @@
             &__content{
                 min-height: 280px;
                 position: relative;
+                @include max-breakpoint(601){
+                    min-height: 180px;
+                }
                 img{
                     border-radius: 18px;
                 }

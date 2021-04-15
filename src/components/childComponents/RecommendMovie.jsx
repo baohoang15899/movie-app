@@ -8,7 +8,7 @@ import NotFound from '../../img/no-image.png'
 export default function Recommend(props){
     const api = `https://api.themoviedb.org/3/movie/${props.info.match.params.id}/recommendations?`
     const key = "api_key=131c3841b70be2908cf7a3fabcaa002e"
-    const img = "https://image.tmdb.org/t/p/original"
+    const img = "https://image.tmdb.org/t/p/w220_and_h330_face"
 
     const [movie,setMovie] = useState(()=>{
         return []
@@ -60,8 +60,8 @@ export default function Recommend(props){
             {
               breakpoint: 480,
               settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1,
+                slidesToShow: 2,
+                slidesToScroll: 2,
                 dots:false,
               }
             }
