@@ -29,6 +29,10 @@ export default function Banner(){
     const [back,setBack] = useState(()=>{
         return false
     })
+
+    const [backIMG,setBackIMG] = useState(()=>{
+        return false
+    })
     
     useEffect(
         ()=>{
@@ -101,6 +105,10 @@ export default function Banner(){
         setBack(true)
     }
 
+    const handleTV = () =>{
+        setBackIMG(true)
+    }
+
 
 
 
@@ -128,7 +136,7 @@ export default function Banner(){
                     item.original_title ?
                     <Link to={`/detail-movie/${item.id}`} key={item.id}>
                         <div className={`banner__content-slide ${ parseInt(i) === index ? 'add' : ''}`} >
-                        <img src={` ${back ? img + item.backdrop_path : Black }`} onLoad={handleImg} alt=""/>
+                        <img src={` ${item.backdrop_path && back ? img + item.backdrop_path : Black }`} onLoad={handleImg} alt=""/>
                         <div className="banner__content-group">
                             <span className="banner__content-text">
                                 {item.original_title}
@@ -142,7 +150,7 @@ export default function Banner(){
                     :
                     <Link  to={`/detail-tv/${item.id}`} key={item.id}>
                         <div className={`banner__content-slide ${i === index ? 'add' : ''}`} key={item.id}>
-                        <img src={`${item.backdrop_path && back ? img + item.backdrop_path : Black }`} alt=""/>
+                        <img src={`${item.backdrop_path && backIMG ? img + item.backdrop_path : Black }`} onLoad={handleTV} alt=""/>
                         <div className="banner__content-group">
                             <span className="banner__content-text">
                                 {item.original_name}
