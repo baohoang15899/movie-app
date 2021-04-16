@@ -71,7 +71,6 @@ export default function Genre(props){
               settings: {
                 slidesToShow: 2,
                 slidesToScroll: 2,
-                dots:false,
               }
             }
           ]
