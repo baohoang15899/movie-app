@@ -8,7 +8,7 @@ export default function Loading(props){
         }
         const time = setTimeout(()=>{
             document.body.style.overflowY="auto"
-        },1000)
+        },200)
         return () =>{
             clearTimeout(time)
         }

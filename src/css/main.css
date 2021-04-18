@@ -442,7 +442,7 @@ button {
   opacity: 0;
   visibility: hidden;
   transition: all ease-in-out 0.2s;
-  transition-delay: 1s; }
+  transition-delay: 0.2s; }
   .loadingContent.add {
     opacity: 1;
     visibility: visible; }
@@ -476,11 +476,8 @@ button {
         .loadingContent .loadingAnimate .groupDot .dot:nth-child(5) {
           animation-delay: 0.4s; }
 @keyframes loading {
-  0% {
-    background-color: #f38181;
-    transform: translateY(-10px); }
   10% {
-    transform: translateY(0px); } }
+    background-color: #f38181; } }
 .detailMovie {
   background-position: top;
   background-size: cover;

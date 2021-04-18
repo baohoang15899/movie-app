@@ -12,7 +12,7 @@
     opacity: 0;
     visibility: hidden;
     transition: all ease-in-out 0.2s;
-    transition-delay: 1s;
+    transition-delay: 0.2s;
     &.add{
         opacity: 1;
         visibility: visible;
@@ -52,8 +52,7 @@
                     animation-delay: 0.4s;
                 }
                 @keyframes loading {
-                    0%{background-color: $red; transform: translateY(-10px);}
-                    10%{transform: translateY(0px);}
+                    10%{background-color: $red;}
                 }
             }
         }
