@@ -359,7 +359,8 @@ button {
         visibility: visible; }
       .groupCard .card__content:hover .card__content-btn {
         opacity: 1;
-        visibility: visible; }
+        visibility: visible;
+        transition: all ease-in-out 0.2s; }
       .groupCard .card__content::after {
         content: '';
         opacity: 0;
@@ -660,6 +661,7 @@ button {
 .recommend__content .card {
   margin: 0px 10px; }
   .recommend__content .card__content {
+    cursor: pointer;
     min-height: 260px;
     position: relative; }
     @media only screen and (max-width: 600px) {
@@ -672,7 +674,8 @@ button {
       visibility: visible; }
     .recommend__content .card__content:hover .card__content-btn {
       opacity: 1;
-      visibility: visible; }
+      visibility: visible;
+      transition: all ease-in-out 0.2s; }
     .recommend__content .card__content::after {
       content: '';
       opacity: 0;
@@ -877,6 +880,7 @@ button {
   .genCard .card {
     margin: 0px 10px; }
     .genCard .card__content {
+      cursor: pointer;
       min-height: 280px;
       position: relative; }
       @media only screen and (max-width: 601px) {
@@ -889,7 +893,8 @@ button {
         visibility: visible; }
       .genCard .card__content:hover .card__content-btn {
         opacity: 1;
-        visibility: visible; }
+        visibility: visible;
+        transition: all ease-in-out 0.2s; }
       .genCard .card__content::after {
         content: '';
         opacity: 0;
@@ -982,6 +987,7 @@ button {
     .searchPage__content .card {
       margin: 0px 10px; }
       .searchPage__content .card__content {
+        cursor: pointer;
         min-height: 280px;
         position: relative; }
         @media only screen and (max-width: 601px) {

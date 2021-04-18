@@ -83,6 +83,7 @@
     .card{
         margin: 0px 10px;
         &__content{
+            cursor: pointer;
             min-height: 280px;
             position: relative;
             @include max-breakpoint(601){
@@ -98,6 +99,7 @@
             &:hover .card__content-btn{
                 opacity: 1;
                 visibility: visible;
+                transition: all ease-in-out 0.2s;
             }
             &::after{
                 content: '';

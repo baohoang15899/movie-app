@@ -23,6 +23,7 @@
         .card{
             margin: 0px 10px;
             &__content{
+                cursor: pointer;
                 min-height: 280px;
                 position: relative;
                 @include max-breakpoint(601){
