@@ -91,8 +91,7 @@ export default function Gen(props){
             }
         }
         check()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[])
+    },[props.type,sort])
 
     useEffect(()=>{
         const totalPage = async() =>{

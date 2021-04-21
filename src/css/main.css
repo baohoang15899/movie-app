@@ -878,7 +878,7 @@ button {
     margin: 0px 10px; }
     .genCard .card__content {
       cursor: pointer;
-      min-height: 280px;
+      min-height: 240px;
       position: relative; }
       @media only screen and (max-width: 601px) {
         .genCard .card__content {
@@ -985,7 +985,7 @@ button {
       margin: 0px 10px; }
       .searchPage__content .card__content {
         cursor: pointer;
-        min-height: 280px;
+        min-height: 240px;
         position: relative; }
         @media only screen and (max-width: 601px) {
           .searchPage__content .card__content {

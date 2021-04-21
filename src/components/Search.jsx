@@ -14,21 +14,23 @@ export default function Search(){
 
 
     const handleChange = (e) =>{
-        const target = e.target
-        if (target.value.length > 0) {
+        const target = e.target.value
+        if (target.length > 0) {
             setWarn(false)
         }
-        setKey(target.value)
+        setKey(target)
     }
     
     let history = useHistory();
 
     const HandleSubmit = (e) =>{
-        if (key) {
+        if (key.trim().length > 0 ) {
             history.push(`/search/${key}`);
+            setKey("")
         }
         else{
             setWarn(true)
+            setKey("")
         }
         e.preventDefault()
     }
@@ -37,7 +39,7 @@ export default function Search(){
             <div className="container">
                 <div className="search__content">
                     <form onSubmit={HandleSubmit}>
-                        <input type="text" onChange={handleChange} placeholder="Movie, Tv show"/>
+                        <input type="text" onChange={handleChange} value={key} placeholder="Movie, Tv show"/>
                         <button  type="submit">Search</button>
                     </form>
                     {warn ? 

@@ -24,7 +24,7 @@
             margin: 0px 10px;
             &__content{
                 cursor: pointer;
-                min-height: 280px;
+                min-height: 240px;
                 position: relative;
                 @include max-breakpoint(601){
                     min-height: 180px;
