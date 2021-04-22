@@ -8,7 +8,7 @@ export default function DetailMovie(props){
     const api = `https://api.themoviedb.org/3/movie/${props.info.match.params.id}?`
     const director = `https://api.themoviedb.org/3/movie/${props.info.match.params.id}/credits?`
     const key = "api_key=131c3841b70be2908cf7a3fabcaa002e"
-    const img = "https://image.tmdb.org/t/p/w300_and_h450_bestv2"
+    const img = "https://image.tmdb.org/t/p/w220_and_h330_face"
 
     const [modal,setModal] = useState(()=>{
         return false
@@ -135,7 +135,7 @@ export default function DetailMovie(props){
     return(
         <div>
             {connect ? 
-                    <div className='detailMovie' onClick={handleClick} style={{backgroundImage: `${back ? `url("https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${back}")` : 'url()'}`}}>
+                    <div className='detailMovie' onClick={handleClick} style={{backgroundImage: `${back ? `url("https://image.tmdb.org/t/p/w1000_and_h450_multi_faces${back}")` : ''}`}}>
                     <Loading status={loading}/>
                     <Modal status= {modal} type ="movie" id={movieId}/>  
                     {status && 

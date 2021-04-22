@@ -8,7 +8,7 @@ import NotFound from '../../img/no-image.png'
 export default function Actor(props){
     const api = `https://api.themoviedb.org/3/tv/${props.tv.match.params.id}/credits?`
     const key = "api_key=131c3841b70be2908cf7a3fabcaa002e"
-    const img = "https://image.tmdb.org/t/p/original"
+    const img = "https://image.tmdb.org/t/p/w300_and_h450_bestv2"
 
     const [actor,setActor] = useState(()=>{
         return []
